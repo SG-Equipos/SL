@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="es" data-lang="auto">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Conectamos profesionales con clientes a nivel global. Encuentra expertos en tu ciudad o país.">
+    <title>Soluciones Globales y Equipos | Profesionales Internacionales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="icon" href="favicon.ico">
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <img src="logo.png" alt="Soluciones Globales Logo">
+                <span>Soluciones Globales</span>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#profesionales"><i class="fas fa-users"></i> Profesionales</a></li>
+                <li><a href="#clientes"><i class="fas fa-handshake"></i> Para Clientes</a></li>
+                <li><a href="#inscripcion"><i class="fas fa-edit"></i> Inscripción</a></li>
+                <li><a href="#testimonios"><i class="fas fa-quote-left"></i> Testimonios</a></li>
+                <li>
+                    <div class="language-selector">
+                        <i class="fas fa-globe"></i>
+                        <select id="language-selector">
+                            <option value="es">Español</option>
+                            <option value="en">English</option>
+                            <option value="fr">Français</option>
+                            <option value="de">Deutsch</option>
+                            <option value="pt">Português</option>
+                        </select>
+                    </div>
+                </li>
+            </ul>
+            <div class="mobile-menu">
+                <i class="fas fa-bars"></i>
+            </div>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Conectamos talento global con oportunidades</h1>
+            <p>La plataforma líder para encontrar profesionales calificados o clientes en cualquier región del mundo.</p>
+            <div class="search-container">
+                <div class="search-bar">
+                    <input type="text" id="global-search" placeholder="Buscar por ciudad, país o especialización...">
+                    <button id="search-btn"><i class="fas fa-search"></i> Buscar</button>
+                </div>
+                <div class="search-filters">
+                    <select id="country-filter">
+                        <option value="">Todos los países</option>
+                        <option value="MX">México</option>
+                        <option value="US">Estados Unidos</option>
+                        <option value="ES">España</option>
+                        <!-- Más países -->
+                    </select>
+                    <select id="specialization-filter">
+                        <option value="">Todas las especializaciones</option>
+                        <option value="IT">Tecnología</option>
+                        <option value="medicina">Salud</option>
+                        <option value="diseño">Diseño</option>
+                        <!-- Más especializaciones -->
+                    </select>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="profesionales" class="professionals-container">
+        <div class="section-header">
+            <h2>Profesionales Destacados</h2>
+            <div class="sort-options">
+                <span>Ordenar por:</span>
+                <select id="sort-professionals">
+                    <option value="relevance">Relevancia</option>
+                    <option value="rating">Calificación</option>
+                    <option value="experience">Experiencia</option>
+                </select>
+            </div>
+        </div>
+        <div class="professionals-grid" id="professionals-grid">
+            <!-- Dinámico via JS -->
+        </div>
+        <div class="pagination" id="pagination">
+            <!-- Dinámico via JS -->
+        </div>
+    </section>
+
+    <section id="testimonios" class="testimonials">
+        <h2>Lo que dicen nuestros usuarios</h2>
+        <div class="testimonials-slider">
+            <div class="testimonial">
+                <div class="quote">"Encontré al ingeniero perfecto para mi proyecto en solo 2 días."</div>
+                <div class="author">- María G., Argentina</div>
+            </div>
+            <div class="testimonial">
+                <div class="quote">"Como profesional, he conseguido clientes internacionales sin esfuerzo."</div>
+                <div class="author">- Thomas K., Alemania</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="inscripcion" class="registration">
+        <div class="tabs-container">
+            <div class="tab-buttons">
+                <button class="tab-button active" data-tab="profesional">Soy Profesional</button>
+                <button class="tab-button" data-tab="cliente">Soy Cliente</button>
+            </div>
+            <div id="profesional" class="tab-content active">
+                <div class="requirements">
+                    <h3><i class="fas fa-clipboard-check"></i> Requisitos para Profesionales</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Certificaciones verificadas (cargar documentos)</li>
+                        <li><i class="fas fa-check-circle"></i> Experiencia mínima de 2 años en tu campo</li>
+                        <li><i class="fas fa-check-circle"></i> Disponibilidad para proyectos internacionales</li>
+                        <li><i class="fas fa-check-circle"></i> Portafolio o ejemplos de trabajo previo</li>
+                    </ul>
+                </div>
+                <form id="form-profesional" class="registration-form">
+                    <div class="form-group">
+                        <label for="prof-name">Nombre completo</label>
+                        <input type="text" id="prof-name" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prof-email">Correo electrónico</label>
+                            <input type="email" id="prof-email" placeholder="solucionesglobales.e@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="prof-phone">Teléfono</label>
+                            <input type="tel" id="prof-phone">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prof-country">País</label>
+                            <select id="prof-country" required>
+                                <option value="">Seleccionar país</option>
+                                <!-- Opciones de países -->
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="prof-city">Ciudad</label>
+                            <input type="text" id="prof-city" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-specialization">Especialización principal</label>
+                        <select id="prof-specialization" required>
+                            <option value="">Seleccionar especialización</option>
+                            <option value="IT">Ingeniería Informática</option>
+                            <option value="medicina">Medicina</option>
+                            <option value="diseño">Diseño</option>
+                            <!-- Más opciones -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-experience">Años de experiencia</label>
+                        <input type="number" id="prof-experience" min="0" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-bio">Breve biografía profesional</label>
+                        <textarea id="prof-bio" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="prof-portfolio">Enlace a portafolio o LinkedIn</label>
+                        <input type="url" id="prof-portfolio">
+                    </div>
+                    <div class="form-group file-upload">
+                        <label for="prof-cv">Subir CV (PDF, máximo 5MB)</label>
+                        <input type="file" id="prof-cv" accept=".pdf">
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="prof-terms" required>
+                        <label for="prof-terms">Acepto los términos y condiciones y política de privacidad</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Enviar Solicitud
+                    </button>
+                </form>
+            </div>
+            <div id="cliente" class="tab-content">
+                <div class="requirements">
+                    <h3><i class="fas fa-clipboard-check"></i> Requisitos para Clientes</h3>
+                    <ul>
+                        <li><i class="fas fa-check-circle"></i> Proyectos claramente definidos</li>
+                        <li><i class="fas fa-check-circle"></i> Presupuesto estimado</li>
+                        <li><i class="fas fa-check-circle"></i> Información verídica sobre tu empresa</li>
+                        <li><i class="fas fa-check-circle"></i> Compromiso con los profesionales</li>
+                    </ul>
+                </div>
+                <form id="form-cliente" class="registration-form">
+                    <div class="form-group">
+                        <label for="client-company">Empresa/Organización</label>
+                        <input type="text" id="client-company" required>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-name">Nombre de contacto</label>
+                            <input type="text" id="client-name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-position">Cargo</label>
+                            <input type="text" id="client-position">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="client-email">Correo electrónico</label>
+                            <input type="email" id="client-email" placeholder="lsglobal.sales@gmail.com" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="client-phone">Teléfono</label>
+                            <input type="tel" id="client-phone">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-country">País</label>
+                        <select id="client-country" required>
+                            <option value="">Seleccionar país</option>
+                            <!-- Opciones de países -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-need">¿Qué tipo de profesional necesitas?</label>
+                        <select id="client-need" required>
+                            <option value="">Seleccionar especialización</option>
+                            <option value="IT">Ingeniería Informática</option>
+                            <option value="medicina">Medicina</option>
+                            <option value="diseño">Diseño</option>
+                            <!-- Más opciones -->
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-project">Describe tu proyecto o necesidad</label>
+                        <textarea id="client-project" rows="4" required></textarea>
+                    </div>
+                    <div class="form-group">
+                        <label for="client-budget">Presupuesto estimado (USD)</label>
+                        <select id="client-budget">
+                            <option value="">Prefiero no especificar</option>
+                            <option value="1k-5k">$1,000 - $5,000</option>
+                            <option value="5k-10k">$5,000 - $10,000</option>
+                            <option value="10k+">Más de $10,000</option>
+                        </select>
+                    </div>
+                    <div class="form-group checkbox">
+                        <input type="checkbox" id="client-terms" required>
+                        <label for="client-terms">Acepto los términos y condiciones y política de privacidad</label>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <i class="fas fa-paper-plane"></i> Contactar Profesionales
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats">
+        <div class="stat-item">
+            <div class="stat-number" id="professionals-count">0</div>
+            <div class="stat-label">Profesionales registrados</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="countries-count">0</div>
+            <div class="stat-label">Países cubiertos</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="projects-count">0</div>
+            <div class="stat-label">Proyectos completados</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-number" id="satisfaction-rate">0%</div>
+            <div class="stat-label">Tasa de satisfacción</div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section about">
+                <h3>Soluciones Globales y Equipos</h3>
+                <p>Conectando talento con oportunidades a nivel mundial desde 2023.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-section links">
+                <h3>Enlaces rápidos</h3>
+                <ul>
+                    <li><a href="#profesionales">Buscar profesionales</a></li>
+                    <li><a href="#inscripcion">Registrarse</a></li>
+                    <li><a href="#">Términos y condiciones</a></li>
+                    <li><a href="#">Política de privacidad</a></li>
+                </ul>
+            </div>
+            <div class="footer-section contact">
+                <h3>Contacto</h3>
+                <p><i class="fas fa-envelope"></i> Profesionales: solucionesglobales.e@gmail.com</p>
+                <p><i class="fas fa-envelope"></i> Clientes: lsglobal.sales@gmail.com</p>
+                <p><i class="fas fa-phone"></i> +1 (123) 456-7890</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2023 Soluciones Globales y Equipos. Todos los derechos reservados.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/i18next@21.6.10/i18next.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/i18next-http-backend@1.3.2/i18nextHttpBackend.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
